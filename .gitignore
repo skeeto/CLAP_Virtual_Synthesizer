@@ -1,9 +1,7 @@
-obj/
-bin/
+build/
 compile_commands.json
 .helix/
 .cache/
 presets/
 audio/
-external/.submodules-initialized
 .vscode/compile_commands*

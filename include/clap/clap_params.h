@@ -3,7 +3,7 @@
 #ifndef __CLAP_PARAMS_H__
 #define __CLAP_PARAMS_H__
 
-#include "lib_clap/include/clap/clap.h"
+#include "clap/clap.h"
 
 /* Parameters defines */
 #define P_VOLUME (0)

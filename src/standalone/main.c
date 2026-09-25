@@ -6,7 +6,7 @@
 #endif 
 
 #define RAYGUI_IMPLEMENTATION
-#include "lib_raygui/src/raygui.h"
+#include "raygui.h"
 
 #ifdef __WINDOWS__
 #include <windows.h>

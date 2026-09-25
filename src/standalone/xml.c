@@ -26,7 +26,7 @@ and Windows API working together */
 #include <libxml2/libxml/tree.h>
 #endif
 
-#include "lib_raygui/src/raygui.h"
+#include "raygui.h"
 #define __NO_RL__
 #include "defs.h"
 #undef __NO_RL__

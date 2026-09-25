@@ -3,7 +3,7 @@
 
 #ifdef __CLAP__
 
-#include "lib_clap/include/clap/clap.h"
+#include "clap/clap.h"
 
 /* Plugin entry point */
 bool entry_init(const char *plugin_path);

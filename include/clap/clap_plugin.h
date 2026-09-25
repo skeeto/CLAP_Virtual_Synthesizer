@@ -22,7 +22,7 @@ typedef HANDLE mutex;
 
 #endif
 
-#include "lib_clap/include/clap/clap.h"
+#include "clap/clap.h"
 #include "clap/clap_params.h"
 #include "clap/gui/clap_gui.h"
 #include "core/synth.h"

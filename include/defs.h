@@ -3,7 +3,7 @@
 
 #ifndef __CLAP__
 #if !defined(__NO_RL__)
-#include "lib_raylib/src/raylib.h"
+#include "raylib.h"
 #endif /* NO RAYLIB */
 #endif /* __CLAP__ */
 

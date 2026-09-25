@@ -55,26 +55,27 @@ The MIDI input should work with all USB MIDI keyboards, to use the synth with yo
 # Dependencies 💻
 
 ## Cross-platform
-All of these cross-platform dependencies are imported in the project as git submodules, just run `make` for the first time to enable and clone them and don't delete the `external/.submodules-initialized` file to not rebuild them at each compilation.
+These dependencies are automatically downloaded (and verified with a SHA256 checksum) by CMake with FetchContent at the first configure step, they are pinned to a specific commit :
 - raylib
 - raygui
 - CLAP
-- stb_truetype
+- libxml2
+
+stb_truetype is a single header vendored in the `third_party/` directory, no setup needed.
 
 ## Linux
 All of these dependencies should be found in any Linux package manager, but they were only tested on APT :
-- pulseaudio
 - libasound-dev
 - zenity
-- libxml2
 
 ## Windows
-The only difference for Windows is that libxml2 is included in the `external` directory, no need for installing or compiling the library.
 This project use the GCC compiler so you would need to install it, I use the MinGW-64 one from scoop.
   
 # Compilation 🛠️
-To compile the projet as a standalone executable : `make` or `make COMPILE_MODE=STANDALONE`.
-To compile the project as a CLAP plugin : `make COMPILE_MODE=CLAP`.
+To compile the projet as a standalone executable : `cmake -B build && cmake --build build`.
+To compile the project as a CLAP plugin : `cmake -B build -DBUILD_CLAP_PLUGIN=ON && cmake --build build`.
+To build both : `cmake -B build -DBUILD_CLAP_PLUGIN=ON -DBUILD_STANDALONE=ON && cmake --build build`.
+The standalone executable is output to `build/synth` (or `synth.exe` on Windows), the plugin to `build/synth.clap`.
 Don't forget to add the project directory to the CLAP plugin search path of your DAW.
 Create the `presets/` and `audio/` directories in the base project folder in order to use the presets saving and audio recording functionnalities.
   

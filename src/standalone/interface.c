@@ -2,8 +2,8 @@
 
 #include <stdio.h>
 
-#include "lib_raylib/src/raylib.h"
-#include "lib_raygui/src/raygui.h"
+#include "raylib.h"
+#include "raygui.h"
 
 #ifdef __WINDOWS__
 #include "standalone/win_defs.h"
