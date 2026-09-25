@@ -112,8 +112,15 @@ if(BUILD_CLAP_PLUGIN)
     list(APPEND fetch_deps clap)
 endif()
 
-set(LIBXML2_WITH_PROGRAMS OFF CACHE BOOL "" FORCE)
-set(LIBXML2_WITH_TESTS OFF CACHE BOOL "" FORCE)
+if(BUILD_STANDALONE)
+    set(LIBXML2_WITH_PROGRAMS OFF CACHE BOOL "" FORCE)
+    set(LIBXML2_WITH_TESTS OFF CACHE BOOL "" FORCE)
+    # iconv is not always available (e.g. minimal mingw-w64 toolchains),
+    # libxml2 falls back to its internal ISO8859 converter when it is missing
+    find_package(Iconv QUIET)
+    set(LIBXML2_WITH_ICONV ${Iconv_FOUND} CACHE BOOL "" FORCE)
+endif()
+
 FetchContent_MakeAvailable(${fetch_deps})
 
 if(BUILD_STANDALONE)
